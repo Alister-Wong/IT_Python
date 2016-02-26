@@ -5,6 +5,10 @@ restart = 0
 gold = 0 #set amount of default gold (RECOMMENDED = 0)
 lives = 5 #set amount of lives (RECOMMENDED = 5)
 restart = 0 #DO NOT CHANGE
+shortsword = 0 #DO NOT CHANGE
+leatherA = 0 #DO NOT CHANGE
+shield = 0 #DO NOT CHANGE
+bow = 0 #DO NOT CHANGE
 
 def everypath():
     global gold
@@ -13,6 +17,10 @@ def everypath():
     gold = 0 #set amount of default gold (RECOMMENDED = 0)
     lives = 5 #set amount of lives (RECOMMENDED = 5)
     restart = 0 #DO NOT CHANGE
+    shortsword = 0 #DO NOT CHANGE
+    leatherA = 0 #DO NOT CHANGE
+    shield = 0 #DO NOT CHANGE
+    bow = 0 #DO NOT CHANGE
 
     if restart == 0:
         window = Tk()
@@ -187,44 +195,61 @@ def everypath():
                             global gold
 
                             if pathIN22 == "1":
-                                window22.destroy()
+                                if shortsword == 0 and leatherA == 0 and shield == 0 and bow == 0:
+                                    window22.destroy()
                                 window221 = Tk()
                                 window221.title("Dungeon Explorers!")
                                 window221.minsize(400, 100)
 
-
                                 def secondpath21():
-                                    pathIN2211 = pathV2211.get()
-                                    if pathIN2211 == "1":
-                                        path2211msg = Label(window2211, text = "test")
+                                    window221.destroy()
+                                    window2211 = Tk()
                                 def  shortswordb():
+                                    global shortsword
                                     global gold
-                                    gold = gold - 2
-                                    secondpath21buy()
+                                    if gold >= 2 and shortsword == 0:
+                                        gold = gold - 2
+                                        shortsword += 1
+                                    path221msggold.config(text = "You have %s gold(s)"% (gold))
                                 def leatherAb():
+                                    global leatherA
                                     global gold
-                                    gold = gold - 3
-                                    secondpath21buy()
+                                    if gold >= 3 and leatherA == 0:
+                                        gold = gold - 3
+                                        leatherA += 1
+                                    path221msggold.config(text = "You have %s gold(s)"% (gold))
                                 def shieldb():
+                                    global shield
                                     global gold
-                                    gold = gold - 3
-                                    secondpath21buy()
+                                    if gold >= 3 and shield == 0:
+                                        gold = gold - 3
+                                        shield += 1
+                                    path221msggold.config(text = "You have %s gold(s)"% (gold))
                                 def bowb():
+                                    global bow
                                     global gold
-                                    gold = gold - 4
-                                    secondpath21buy()
-
+                                    if gold >= 4 and bow == 0:
+                                        gold = gold - 4
+                                        bow += 1
+                                    else:
+                                        window221buy = Tk()
+                                        window221buy.title("Gold")
+                                        window221buy.minszie(400, 100)
+                                    path221msggold.config(text = "You have %s gold(s)"% (gold))
 
                                 path221msg = Label(window221, text = "You have %s live(s)." % (lives), fg = "red").pack()
-                                path221msg = Label(window221, text = "You have %s gold(s)." % (gold), fg = "gold").pack()
+                                path221msggold = Label(window221, text = "You have %s gold(s)." % (gold), fg = "gold")
+                                path221msggold.pack()
                                 path221msg = Label(window221, text = "You stumble upon a shop. It appears to have many wares.").pack()
+                                path221msg = Label(window221, text = "It appears that keeping that gold earlier came in handy.").pack()
 
                                 buy221s = Button(window221, text = "Short Sword - 2 Gold ", command = shortswordb, width = 25, height = 1, bd = 5, fg = "green").pack(side = LEFT)
                                 buy221l = Button(window221, text = "Leather Armour - 3 Gold ", command = leatherAb, width = 25, height = 1, bd = 5, fg = "brown").pack(side = RIGHT)
                                 buy221b = Button(window221, text = "Bow and Arrows - 4 Gold ", command = bowb, width = 25, height = 1, bd = 5, fg = "red").pack(side = LEFT)
                                 buy221sh = Button(window221, text = "Shield - 3 Gold ", command = shieldb, width = 25, height = 1, bd = 5, fg = "blue").pack(side = RIGHT)
-                                blankmsg = Label(window221, text = "Done?").pack()
-                                buy22 = Button(window221, text = "CONFIRM", command = secondpath21).pack()
+
+                                MyButton = Button(window221, text = "CONFIRM", command = secondpath21)
+                                MyButton.grid(row = 4, column = 0)
                             elif pathIN22 == "2":
                                 window22.destroy()
                                 window222 = Tk()
@@ -298,8 +323,8 @@ def everypath():
                         number1to32.after(3000, number1to32.destroy)
 
                 path2msg = Label(window2, text = "You have %s live(s)." % (lives), fg = "red").pack()
-                path2msg = Label(window2, text = "You find 5 gold lying on the floor").pack()
-                gold = gold + 5
+                path2msg = Label(window2, text = "You find 7 gold lying on the floor").pack()
+                gold = gold + 7
                 path2msg = Label(window2, text = "You now have a total of : %s gold" % (gold), fg = "green").pack()
                 path2msg = Label(window2, text = "A shard of glass is also on the floor next to the abandoned house").pack()
                 path2msg = Label(window2, text = "In the shard of glass, you see yourself.").pack()
