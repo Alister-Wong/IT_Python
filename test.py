@@ -4,9 +4,8 @@ lives = 2
 
 window = Tk()
 window.title('Dungeon Explorer!')
-window.minsize(400, 100)
 
-def firstdoor():  
+def firstdoor():
     doorIN = doorV.get()
 
     if doorIN == "1":
@@ -30,7 +29,7 @@ def firstdoor():
 
     elif doorIN == "2":
         door2 = Label(window, text = "").pack()
-        
+
         window.destroy()
         window22 = Tk()
         window22.title('Dungeon Explorer!')
@@ -57,7 +56,7 @@ def firstdoor():
                 number1to3msg22 = Label(number1to322, text = "Please Enter a number between 1 and 3").pack()
                 number1to3B22 = Button(number1to322, bd = 5, height = 1, width = 10, command = number1to322.destroy, text = "OK",).pack()
                 number1to322.after(3000, number1to322.destroy)
-           
+
         door22msg = Label(window22, text = "Nothing happened, but you now see 3 more doors.").pack()
 
         doorV22 = StringVar()
@@ -75,7 +74,7 @@ def firstdoor():
         death = Tk()
         death.title("RIP")
         window.destroy()
-        
+
         deathmsg = Label(death, text = "The ground beneath you disappeared! IT BURNS! IT'S LAVA").pack()
         deathmsg31 = Label(death, text = "You burnt to death. :(").pack()
         deathmsgok = Button(death, bd = 5, text = "OK", command = death.destroy).pack()
@@ -91,7 +90,7 @@ def seconddoor21():
     doorV22 = StringVar()
 
     doorIN22 = doorV22.get()
-    
+
     if doorIN22 == "1":
         door1 = Label(window22, text = doorIN).pack()
     elif doorIN22 == "2":
