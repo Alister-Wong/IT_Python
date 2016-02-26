@@ -3,7 +3,6 @@ from tkinter import *
 lives = 2
 
 window = Tk()
-window.title('Dungeon Explorer!')
 
 def firstdoor():
     doorIN = doorV.get()
@@ -110,3 +109,5 @@ doorE = Entry(window, textvariable = doorV, bd = 5)
 doorE.pack()
 
 ok = Button(window, text = "OK", command = firstdoor, width = 5, height = 1, bd = 5).pack()
+
+test
