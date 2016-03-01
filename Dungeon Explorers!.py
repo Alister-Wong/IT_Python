@@ -6,7 +6,7 @@ gold = 0 #set amount of default gold (RECOMMENDED = 0)
 lives = 5 #set amount of lives (RECOMMENDED = 5)
 restart = 0 #DO NOT CHANGE
 shortsword = 0 #DO NOT CHANGE
-leatherA = 0 #DO NOT CHANGE
+ironA = 0 #DO NOT CHANGE
 shield = 0 #DO NOT CHANGE
 bow = 0 #DO NOT CHANGE
 
@@ -18,7 +18,7 @@ def everypath():
     lives = 5 #set amount of lives (RECOMMENDED = 5)
     restart = 0 #DO NOT CHANGE
     shortsword = 0 #DO NOT CHANGE
-    leatherA = 0 #DO NOT CHANGE
+    ironA = 0 #DO NOT CHANGE
     shield = 0 #DO NOT CHANGE
     bow = 0 #DO NOT CHANGE
 
@@ -44,69 +44,60 @@ def everypath():
                     if lives == 0:
                         window.destroy()
                     elif pathIN1 == "1":
+                        window1.destroy()
+                        window12 = Tk()
                         path1 = Label(window1, text = "test1")
                     elif pathIN1 == "2":
                         window1.destroy()
                         window12 = Tk()
                         window12.title("Dungeon Explorer!")
                         window12.minsize(400, 100)
-
                         def firstpath2():
-                            path121msg = Label(window121, text = "")
+                            pathIN12 = pathV12.get()
+                            global lives
+                            global gold
+                            if pathIN12 == "1":
+                                window12.destroy()
+                                window121 = Tk()
+                                window121.title("Dungeon Explorer!")
+                                window121.minsize(400, 100)
 
-                        path12msg = Label(window12, text = "You have %s live(s)." % (lives), fg = "red").pack()
-                        path12msg = Label(window12, text ="You head back the way you came from...").pack()
-                        path12msg = Label(window12, text = "Or atleast thats where you thought you were going.").pack()
-                        path12msg = Label(window12, text = "It seems to be an endless journey back to your origin").pack()
-                        path12msg = Label(window12, text = "Doubt begins to cloud your mind and you find yourself lost.").pack()
-                        path12msg = Label(window12, text = "").pack()
+                                path121msg = Label(window121, text = "You have %s live(s)." % (lives), fg = "red").pack()
+                                path121msg = Label(window121, text = "As you near the figure, recognisable features are appearing.").pack()
+                                path121msg = Label(window121, text = "To your suprise, it was actually a goblin!").pack()
+                                path121msg = Label(window121, text = "You prepare for battle, as the goblin notices you").pack()
+                                path121msg = Label(window121, text = '"Hey, you new?" The goblin replied, as he saw you').pack()
+                                path121msg = Label(window121, text = "You question his reply, only to find out that you and him are of the same kind.").pack()
+                                path121msg = Label(window121, text = "You lose all your aggression and decide to team up with him.").pack()
+                                path121msg = Label(window121, text = "He begins to follow you as he was lost himself.").pack()
+                                path121msg = Label(window121, text = "You have gained yourself a companion!").pack()
+
+                                pathV121 = StringVar()
+                                pathE121 = Entry(window121, textvariable = pathV121, bd = 5)
+                                pathE121.pack()
+
+                                ok121 = Button(window121, text = "OK", command = firstpath2, width = 5, height = 1, bd = 5).pack()
+
+                        path12msg = Label(window12, text = "The  path back seems different to where you came from.").pack()
+                        path12msg = Label(window12, text = "After walking for what seems like an endless hike, a shadow is emerging.").pack()
+                        path12msg = Label(window12, text = "As you get closer towards the shadow, it seems to be getting larger.").pack()
+                        path12msg = Label(window12, text = "Now that you get a closer look, it has a humanoid look to it.").pack()
+                        path12 = Label(window12, text = "Do you 1) Run for the shadow 2) Try to sneak past it and ignore the figure.", fg = "blue").pack()
 
                         pathV12 = StringVar()
                         pathE12 = Entry(window12, textvariable = pathV12, bd = 5)
                         pathE12.pack()
 
-                        ok12 = Button(window12, text ="OK", command = firstpath2, width = 10, height = 1, bd = 5).pack()
-                    elif pathIN1 == "3":
+                        ok12 = Button(window12, text = "OK", command = firstpath2, width = 5, height = 1, bd = 5).pack()
+                    elif pathIN1 == "":
                         window1.destroy()
-                        window13 = Tk()
-                        window13.title("Dungeon Explorer!")
-                        window13.minsize(400, 100)
-                        def firstpath3():
-                            pathIN13 = pathV13.get()
-                            global lives
-                            global gold
-                            if pathIN13 == "1":
-                                window13.destroy()
-                                window131 = Tk()
-                                window131.title("Dungeon Explorer!")
-                                window131.minsize(400, 100)
+                        window1crash = Tk()
+                        window1crash.title("Crash")
+                        window1crash.minsize(400, 80)
 
-                                path131msg = Label(window131, text = "You have %s live(s)." % (lives), fg = "red").pack()
-                                path131msg = Label(window131, text = "As you near the figure, recognisable features are appearing.").pack()
-                                path131msg = Label(window131, text = "To your suprise, it was actually a goblin!").pack()
-                                path131msg = Label(window131, text = "You prepare for battle, as the goblin notices you").pack()
-                                path131msg = Label(window131, text = '"Hey, you new?" The goblin replied, as he saw you').pack()
-                                path131msg = Label(window131, text = "You question his reply, only to find out that you and him are of the same kind.").pack()
-                                path131msg = Label(window131, text = "You lose all your aggression and decide to team up with him.").pack()
-                                path131msg = Label(window131, text = "He begins to follow you as he was lost himself.").pack()
-                                path131msg = Label(window131, text = "You have gained yourself a companion!").pack()
-
-                                pathV131 = StringVar()
-                                pathE131 = Entry(window131, textvariable = pathV13, bd = 5)
-                                pathE13.pack()
-
-                                ok131 = Button(window131, text = "OK", command = firstpath3, width = 5, height = 1, bd = 5).pack()
-
-                        path13msg = Label(window13, text = "After walking for what seems like an endless hike, a shadow is emerging.").pack()
-                        path13msg = Label(window13, text = "As you get closer towards the shadow, it seems to be getting larger.").pack()
-                        path13msg = Label(window13, text = "Now that you get a closer look, it has a humanoid look to it.").pack()
-                        path13 = Label(window13, text = "Do you 1) Run for the shadow 2) Try to sneak past it and ignore the figure.", fg = "blue").pack()
-
-                        pathV13 = StringVar()
-                        pathE13 = Entry(window13, textvariable = pathV13, bd = 5)
-                        pathE13.pack()
-
-                        ok13 = Button(window13, text = "OK", command = firstpath3, width = 5, height = 1, bd = 5).pack()
+                        window1crashmsg = Label(window1crash, text = "Oi, don't try to crash me!!", fg = "red").pack()
+                        ok1crash = Button(window1crash, text = "OK", command = window1crash.destroy, width = 5, height = 1, bd = 5).pack()
+                        window1crash.after(3000, window1crash.destroy)
                     else:
                         number1to31 = Tk()
                         number1to31.title("ERROR")
@@ -125,7 +116,6 @@ def everypath():
 
                 pathV1 = StringVar()
                 path1 = Label(window1, text = "Do you wish to 1) Push forward regardless 2) Turn back", fg = "blue").pack()
-                path1 = Label(window1, text = " 3) Move to your right and hope for the best.", fg = "blue").pack()
                 pathE1 = Entry(window1, textvariable = pathV1, bd = 5)
                 pathE1.pack()
 
@@ -182,49 +172,107 @@ def everypath():
                         def secondpath21buy():
                             window22 = Tk()
                             window22.title('Dungeon Explorer!')
-                            window22.minsize(400, 100)
+                            window22.minsize(1000, 400)
                             sleep(0.5)
                             secondpath2()
                         def secondpath2():
                             pathIN22 = pathV22.get()
                             global shortsword
                             global bow
-                            global leatherA
+                            global ironA
                             global shield
                             global lives
                             global gold
 
                             if pathIN22 == "1":
-                                if shortsword == 0 and leatherA == 0 and shield == 0 and bow == 0:
-                                    window22.destroy()
+                                window22.destroy()
                                 window221 = Tk()
                                 window221.title("Dungeon Explorers!")
-                                window221.minsize(400, 100)
+                                window221.minsize(800, 320)
 
                                 def secondpath21():
+                                    global lives
+                                    global gold
                                     window221.destroy()
                                     window2211 = Tk()
+                                    window2211.title("Dungeon Explorers!")
+                                    window2211.minsize(400, 100)
+
+                                    path2211msg = Label(window2211, text = "Exiting through the back door, there does not seem to be anymore mist.").pack()
+                                    path2211msg = Label(window2211, text = "Looking around, you find a cave ahead of you.").pack()
+                                    path2211msg = Label(window2211, text = "You hear faint screams originating from the entrance.").pack()
+                                    path2211msg = Label(window2211, text = "As you rush in the cave, the screams only get louder..").pack()
+                                    path2211msg = Label(window2211, text = "You see a human, surrounded by 3 of your own...").pack()
+                                    path2211msg = Label(window2211, text = "Goblins. As you approach them, the surrounding goblins were all stabbed.").pack()
+                                    path2211msg = Label(window2211, text = "Judging from the looks of the human's sword, it is a magical sword.").pack()
+                                    path2211msg = Label(window2211, text = "Imbued with both elements of ice and lightning, to cause severe damage.").pack()
+                                    path2211msg = Label(window2211, text = "You prepare to fight as the human looks to at you with the intent to kill...").pack()
+
+                                    def secondpathboss():
+                                        global gold
+                                        global lives
+                                        global shortsword
+                                        global bow
+                                        global shield
+                                        global ironA
+                                        window2211.destroy()
+                                        window2boss = Tk()
+                                        window2boss.title("Dungeon Explorers!")
+                                        window2boss.minsize(400, 100)
+
+                                        path2bossmsg = Label(window2boss, text = "",).pack()
+
+
+                                    ok2211 = Button(window2211, text = "Continue", width = 30, height = 1, command = secondpathboss,).pack()
+
                                 def  shortswordb():
                                     global shortsword
                                     global gold
                                     if gold >= 2 and shortsword == 0:
                                         gold = gold - 2
                                         shortsword += 1
+                                    else:
+                                        window221buy = Tk()
+                                        window221buy.title("Too bad...")
+                                        window221buy.minsize(200, 50)
+
+                                        window221buylabel = Label(window221buy, text = "Not enough gold or you already own the item.").pack()
+                                        window221buybutton = Button(window221buy, text = "Close", command = window221buy.destroy, height = 1, width = 10, bd = 5).pack()
+                                        window221buy.after(3000, window221buy.destroy)
                                     path221msggold.config(text = "You have %s gold(s)"% (gold))
-                                def leatherAb():
-                                    global leatherA
+                                    path221itemS.config(text = "You own: %s Short Sword(s)" % (shortsword))
+                                def ironAb():
+                                    global ironA
                                     global gold
-                                    if gold >= 3 and leatherA == 0:
+                                    if gold >= 3 and ironA == 0:
                                         gold = gold - 3
-                                        leatherA += 1
+                                        ironA += 1
+                                    else:
+                                        window221buy = Tk()
+                                        window221buy.title("Too bad...")
+                                        window221buy.minsize(200, 50)
+
+                                        window221buylabel = Label(window221buy, text = "Not enough gold or you already own the item.").pack()
+                                        window221buybutton = Button(window221buy, text = "Close", command = window221buy.destroy, height = 1, width = 10, bd = 5).pack()
+                                        window221buy.after(3000, window221buy.destroy)
                                     path221msggold.config(text = "You have %s gold(s)"% (gold))
+                                    path221itemL.config(text = "You own: %s Leather Armour" % (ironA))
                                 def shieldb():
                                     global shield
                                     global gold
                                     if gold >= 3 and shield == 0:
                                         gold = gold - 3
                                         shield += 1
+                                    else:
+                                        window221buy = Tk()
+                                        window221buy.title("Too bad...")
+                                        window221buy.minsize(200, 50)
+
+                                        window221buylabel = Label(window221buy, text = "Not enough gold or you already own the item.").pack()
+                                        window221buybutton = Button(window221buy, text = "Close", command = window221buy.destroy, height = 1, width = 10, bd = 5).pack()
+                                        window221buy.after(3000, window221buy.destroy)
                                     path221msggold.config(text = "You have %s gold(s)"% (gold))
+                                    path221itemSh.config(text = "You own: %s Shield(s)" % (shield))
                                 def bowb():
                                     global bow
                                     global gold
@@ -233,23 +281,39 @@ def everypath():
                                         bow += 1
                                     else:
                                         window221buy = Tk()
-                                        window221buy.title("Gold")
-                                        window221buy.minszie(400, 100)
+                                        window221buy.title("Too bad...")
+                                        window221buy.minsize(200, 50)
+
+                                        window221buylabel = Label(window221buy, text = "Not enough gold or you already own the item.").pack()
+                                        window221buybutton = Button(window221buy, text = "Close", command = window221buy.destroy, height = 1, width = 10, bd = 5).pack()
+                                        window221buy.after(3000, window221buy.destroy)
                                     path221msggold.config(text = "You have %s gold(s)"% (gold))
+                                    path221itemB.config(text = "You own: %s Bow(s)" % (bow))
 
                                 path221msg = Label(window221, text = "You have %s live(s)." % (lives), fg = "red").pack()
                                 path221msggold = Label(window221, text = "You have %s gold(s)." % (gold), fg = "gold")
                                 path221msggold.pack()
                                 path221msg = Label(window221, text = "You stumble upon a shop. It appears to have many wares.").pack()
                                 path221msg = Label(window221, text = "It appears that keeping that gold earlier came in handy.").pack()
+                                path221itemS = Label(window221, text = "You own: %s Short Sword(s)" % (shortsword))
+                                path221itemB = Label(window221, text = "You own: %s Bow(s)" % (bow))
+                                path221itemL = Label(window221, text = "You own: %s Leather Armour" % (ironA))
+                                path221itemSh = Label(window221, text = "You own: %s Shield(s)" % (shield))
+                                path221itemS.pack()
+                                path221itemB.pack()
+                                path221itemL.pack()
+                                path221itemSh.pack()
+
 
                                 buy221s = Button(window221, text = "Short Sword - 2 Gold ", command = shortswordb, width = 25, height = 1, bd = 5, fg = "green").pack(side = LEFT)
-                                buy221l = Button(window221, text = "Leather Armour - 3 Gold ", command = leatherAb, width = 25, height = 1, bd = 5, fg = "brown").pack(side = RIGHT)
+                                buy221l = Button(window221, text = "Leather Armour - 3 Gold", command = ironAb, width = 25, height = 1, bd = 5, fg = "brown").pack(side = RIGHT)
+
                                 buy221b = Button(window221, text = "Bow and Arrows - 4 Gold ", command = bowb, width = 25, height = 1, bd = 5, fg = "red").pack(side = LEFT)
                                 buy221sh = Button(window221, text = "Shield - 3 Gold ", command = shieldb, width = 25, height = 1, bd = 5, fg = "blue").pack(side = RIGHT)
 
-                                MyButton = Button(window221, text = "CONFIRM", command = secondpath21)
-                                MyButton.grid(row = 4, column = 0)
+                                confirm221 = Button(window221, text = "CONFIRM", command = secondpath21, width = 25, height = 1, bd = 5)
+                                confirm221.pack()
+                                confirm221.place(x = 320, y = 283)
                             elif pathIN22 == "2":
                                 window22.destroy()
                                 window222 = Tk()
@@ -290,7 +354,19 @@ def everypath():
                             global gold
 
                             if pathIN23 == "1":
-                                path23 = Label(window23, text = "test1")
+                                window23.destroy()
+                                window231 = Tk()
+                                window231.title("Dungeon Explorers!")
+                                window231.minsize(400, 100)
+
+                                path231 = Label(window231, text = "This route looks awfully familiar. Could it be?").pack()
+                                path231 = Label(window231, text = "Your sense of direction is now questionable.").pack()
+                                path231 = Label(window231, text = "Yes, it can be confirmed now. This is the misty path from before!").pack()
+                                path231 = Label(window231, text = "Atleast you have found a building now. Perhaps you can acquire assistance here.").pack()
+                                path231 = Label(window231, text = "Entering through the door, it appears to be a shop.")
+
+                                ok23 = Button(window231, text = "OK", command = secondpathshopredirect, width = 5, height = 1, bd = 5).pack()
+
                             elif pathIN23 == "2":
                                 path23 = Label(window23, text = "test2")
                             else:
@@ -312,6 +388,15 @@ def everypath():
                         pathE23.pack()
 
                         ok23 = Button(window23, text = "OK", command = secondpath3, width = 5, height = 1, bd = 5).pack()
+                    elif pathIN2 == "":
+                        window2.destroy()
+                        window2crash = Tk()
+                        window2crash.title("Crash")
+                        window2crash.minsize(400, 80)
+
+                        window2crashmsg = Label(window2crash, text = "Oi, don't try to crash me!!", fg = "red").pack()
+                        ok2crash = Button(window2crash, text = "OK", command = window2crash.destroy, width = 5, height = 1, bd = 5).pack()
+                        window2crash.after(3000, window2crash.destroy)
 
                     else:
                         number1to32 = Tk()
@@ -323,8 +408,8 @@ def everypath():
                         number1to32.after(3000, number1to32.destroy)
 
                 path2msg = Label(window2, text = "You have %s live(s)." % (lives), fg = "red").pack()
-                path2msg = Label(window2, text = "You find 7 gold lying on the floor").pack()
-                gold = gold + 7
+                path2msg = Label(window2, text = "You find 5 gold lying on the floor").pack()
+                gold = gold + 5
                 path2msg = Label(window2, text = "You now have a total of : %s gold" % (gold), fg = "green").pack()
                 path2msg = Label(window2, text = "A shard of glass is also on the floor next to the abandoned house").pack()
                 path2msg = Label(window2, text = "In the shard of glass, you see yourself.").pack()
@@ -353,13 +438,22 @@ def everypath():
                 deathmsg3 = Label(death, text = "You have %s lives remaining" % (lives), fg = "red").pack()
                 deathmsg3 = Label(death, text = "The ground beneath you suddenly went down slightly.").pack()
                 deathmsg3 = Label(death, text = "Its movement was very smooth. Holes emerge from the walls.").pack()
-                deathmsg3 = Label(death, text = "Arrows come flying out, in a rapid attempt to dodge the arrows, you trip over your own feet as your leg gets pierced by an arrow.").pack()
-                deathmsg3 = Label(death, text = "This ends in you being unable to escape the floor as it slowly.").pack()
-                deathmsg3 = Label(death, text = "Below you is a bottomless pit.").pack()
+                deathmsg3 = Label(death, text = "Arrows come flying out, in a rapid attempt to dodge the arrows, you trip over your own feet.").pack()
+                deathmsg3 = Label(death, text = "Your find your leg to have been pierced, perhaps that's the reason you tripped.").pack()
+                deathmsg3 = Label(death, text = "Below you is a bottomless pit, unable to see the bottom, you can only guess how deep it is.").pack()
                 deathmsg3 = Label(death, text = "Unable to move, you prepare for the inevitable.").pack()
                 deathmsg3 = Label(death, text = "Death.").pack()
                 deathmsgok = Button(death, bd = 5, text = "Quit", command = death.destroy, height = 2, width = 30).pack(side = LEFT)
                 deathmsgretry = Button(death, bd = 5, text = "Retry", command = restartingthird, height = 2, width = 30).pack(side = RIGHT)
+            elif pathIN == "":
+                window.destroy()
+                windowcrash = Tk()
+                windowcrash.title("Crash")
+                windowcrash.minsize(400, 80)
+
+                windowcrashmsg = Label(windowcrash, text = "Oi, don't try to crash me!!", fg = "red").pack()
+                okcrash = Button(windowcrash, text = "OK", command = windowcrash.destroy, width = 5, height = 1, bd = 5).pack()
+                windowcrash.after(3000, windowcrash.destroy)
             else:
                 number1to3 = Tk()
                 number1to3.title("ERROR")
