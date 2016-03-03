@@ -203,7 +203,7 @@ def everypath():
                                     path2211msg = Label(window2211, text = "You hear faint screams originating from the entrance.").pack()
                                     path2211msg = Label(window2211, text = "As you rush in the cave, the screams only get louder..").pack()
                                     path2211msg = Label(window2211, text = "You see a human, surrounded by 3 of your own...").pack()
-                                    path2211msg = Label(window2211, text = "Goblins. As you approach them, the surrounding goblins were all stabbed.").pack()
+                                    path2211msg = Label(window2211, text = "Goblins. As you approach them, the surrounding goblins were burnt to crisps").pack()
                                     path2211msg = Label(window2211, text = "Judging from the looks of the human's sword, it is a magical sword.").pack()
                                     path2211msg = Label(window2211, text = "Imbued with both elements of ice and lightning, to cause severe damage.").pack()
                                     path2211msg = Label(window2211, text = "You prepare to fight as the human looks to at you with the intent to kill...").pack()
